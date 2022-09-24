@@ -1,0 +1,170 @@
+/*
+  The CSS in this style tag is based off of Bear Blog's default CSS.
+  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
+  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+ */
+@font-face {
+  font-family: "Fjalla One";
+  src: url("/fonts/FjallaOne-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: Verdana, sans-serif;
+  background: #1c1e28;
+  color: rgb(148 163 184);
+}
+
+@media (min-width: 640px) {
+  main {
+    height: calc(100% - 64px - 0.375rem - 48px); /* subtract header & footer */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+a:hover {
+  color: #5de4c7;
+}
+nav a {
+  margin-right: 10px;
+}
+textarea {
+  width: 100%;
+  font-size: 16px;
+}
+input {
+  font-size: 16px;
+}
+content {
+  line-height: 1.6;
+}
+table {
+  width: 100%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+code {
+  padding: 2px 5px;
+  background-color: #333;
+}
+pre {
+  padding: 1rem;
+}
+pre > code {
+  all: unset;
+}
+blockquote {
+  border: 1px solid #999;
+  color: #222;
+  padding: 2px 0px 2px 20px;
+  margin: 0px;
+  font-style: italic;
+}
+
+article a {
+  color: #5de4c7;
+}
+article a:hover {
+  text-decoration: underline;
+}
+article code,
+article pre {
+  border-radius: 0.25rem;
+}
+article h2 {
+  font-size: large;
+  font-family: Fjalla One, sans-serif;
+  margin-bottom: 1rem;
+}
+article p,
+article pre {
+  margin-bottom: 1.5rem;
+}
+
+.animated-bg {
+  background-image: url(/assets/animated.svg);
+  background-size: cover;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+.animated-bg::after {
+  position: absolute;
+  content: "";
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  background: radial-gradient(transparent, #1c1e28);
+  pointer-events: none;
+}
+picture {
+  border-radius: 0.375rem;
+}
+
+@keyframes FunText {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.fun-text {
+  text-align: center;
+  background: linear-gradient(
+    127deg,
+    #5de4c7 20%,
+    #91b4d5 40%,
+    #f087bd 60%,
+    #5de4c7 80%
+  );
+  background-size: 200% auto;
+  color: #000;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: FunText 1.25s linear infinite;
+}
+
+/**
+ * SVG fills here are weird. Converted the original hex values to the
+ * long class using this tool: https://codepen.io/sosuke/pen/Pjoqqp
+ */
+.svg-default img {
+  filter: invert(73%) sepia(13%) saturate(498%) hue-rotate(175deg)
+    brightness(88%) contrast(83%);
+}
+.twitter:hover img {
+  /* #1DA1F2 */
+  filter: invert(51%) sepia(49%) saturate(2516%) hue-rotate(176deg)
+    brightness(98%) contrast(93%);
+}
+.github:hover img {
+  /* #333333 */
+  filter: invert(8%) sepia(30%) saturate(83%) hue-rotate(315deg) brightness(91%)
+    contrast(71%);
+}
+.stackoverflow:hover img {
+  /* #F48024 */
+  filter: invert(55%) sepia(85%) saturate(1590%) hue-rotate(345deg)
+    brightness(99%) contrast(93%);
+}
+.twitch:hover img {
+  /* #6441a5 */
+  filter: invert(29%) sepia(28%) saturate(1706%) hue-rotate(224deg)
+    brightness(97%) contrast(96%);
+}

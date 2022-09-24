@@ -1,0 +1,23 @@
+---
+export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {}
+
+const { href, class: className, ...props } = Astro.props;
+const isActive = href === Astro.url.pathname;
+---
+
+<a
+  href={href}
+  class:list={[
+    "cursor-pointer mb-2 mr-6 text-lg md:text-base",
+    className,
+    { active: isActive },
+  ]}
+  {...props}
+>
+  <slot />
+</a>
+<style>
+  a.active {
+    color: #5de4c7;
+  }
+</style>

@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 355 200">
+  <g clipPath="url(#a)">
+    <rect width="4" height="4" fill="#ADD7FF" rx="1" x="20">
+      <animate
+        attributeName="y"
+        dur="5s"
+        from="-20"
+        repeatCount="indefinite"
+        to="355"
+      />
+    </rect>
+    <rect width="4" height="4" fill="#5DE4C7" rx="1" x="60">
+      <animate
+        attributeName="y"
+        dur="6s"
+        from="-100"
+        repeatCount="indefinite"
+        to="355"
+      />
+    </rect>
+    <rect width="4" height="4" fill="#F087BD" rx="1" x="70">
+      <animate
+        attributeName="y"
+        dur="4s"
+        from="-75"
+        repeatCount="indefinite"
+        to="355"
+      />
+    </rect>
+    <rect width="4" height="4" fill="#91B4D5" rx="1" x="100">
+      <animate
+        attributeName="y"
+        dur="5s"
+        from="-50"
+        repeatCount="indefinite"
+        to="355"
+      />
+    </rect>
+    <rect width="4" height="4" fill="#5FB3A1" rx="1" x="140">
+      <animate
+        attributeName="y"
+        dur="6s"
+        from="-40"
+        repeatCount="indefinite"
+        to="355"
+      />
+    </rect>
+    <rect width="4" height="4" fill="#89DDFF" rx="1" x="180">
+      <animate
+        attributeName="y"
+        dur="5s"
+        from="-120"
+        repeatCount="indefinite"
+        to="355"
+      />
+    </rect>
+    <rect width="4" height="4" fill="#D0679D" rx="1" x="200">
+      <animate
+        attributeName="y"
+        dur="6s"
+        from="-100"
+        repeatCount="indefinite"
+        to="355"
+      />
+    </rect>
+    <rect width="4" height="4" fill="#6E7CB3" rx="1" x="240">
+      <animate
+        attributeName="y"
+        dur="4s"
+        from="-30"
+        repeatCount="indefinite"
+        to="355"
+      />
+    </rect>
+    <rect width="4" height="4" fill="#FFFAC2" rx="1" x="270">
+      <animate
+        attributeName="y"
+        dur="6s"
+        from="-100"
+        repeatCount="indefinite"
+        to="355"
+      />
+    </rect>
+    <rect width="4" height="4" fill="#42675A" rx="1" x="300">
+      <animate
+        attributeName="y"
+        dur="5s"
+        from="-75"
+        repeatCount="indefinite"
+        to="355"
+      />
+    </rect>
+  </g>
+  <defs>
+    <clipPath id="a">
+      <rect width="355" height="200" fill="#ffffff" />
+    </clipPath>
+  </defs>
+</svg>

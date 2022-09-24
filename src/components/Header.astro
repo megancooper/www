@@ -1,0 +1,31 @@
+---
+import HeaderLink from "../components/HeaderLink.astro";
+
+const { href, class: className, ...props } = Astro.props;
+
+const LINKS = [
+  { name: "home", href: "/", target: "_parent" },
+  { name: "blog", href: "/blog", target: "_parent" },
+  {
+    name: "resume",
+    href: "https://drive.google.com/file/d/101YewWrELuduknpVb3LGzEYL0iP7JGzz/view?usp=sharing",
+    target: "_blank",
+  },
+];
+---
+
+<header>
+  <nav
+    class="p-4 flex flex-col justify-start items-start sm:flex-row sm:justify-center sm:items-center"
+  >
+    {
+      LINKS.map(({ name, href, target }) => {
+        return (
+          <HeaderLink href={href} target={target}>
+            {name}
+          </HeaderLink>
+        );
+      })
+    }
+  </nav>
+</header>

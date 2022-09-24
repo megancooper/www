@@ -1,0 +1,75 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+
+const PROJECTS = [
+  {
+    name: "CragSense",
+    description: "Scope weather conditions for climbing locations.",
+    link: "https://www.cragsense.com/",
+  },
+  {
+    name: "Achilles",
+    description: "A visualizer for the apollo tracing extension.",
+    link: "https://www.achilles.run",
+  },
+  {
+    name: "Melo",
+    description: "A simple music player.",
+    link: "https://www.melo-app.org",
+  },
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="w-full">
+    <Header title={SITE_TITLE} />
+    <main class="p-4">
+      <div class="animated-bg"></div>
+
+      <div class="flex flex-col justify-center m-auto max-w-lg">
+        <h1 class="font-title text-5xl max-w-xs text-[#91B4D5] mt-8">
+          Building things for <span class="fun-text">fun</span>.
+        </h1>
+        <p class="inline-block mt-4">
+          Hello! I'm Megan, a software engineer based in Portland, OR. I enjoy
+          building fast applications and wearing wacky socks.
+        </p>
+        <h2 class="font-title text-2xl max-w-xs text-[#91B4D5] mt-8 mb-4">
+          Stuff I've built
+        </h2>
+        {
+          PROJECTS.map(({ name, description, link }) => {
+            return (
+              <a
+                href={link}
+                target="_blank"
+                class="cursor-pointer rounded hover:bg-gray-800 p-2 mb-2"
+              >
+                <h3>{name}</h3>
+                <p class="text-gray-500">{description}</p>
+              </a>
+            );
+          })
+        }
+        <h2 class="font-title text-2xl max-w-xs text-[#91B4D5] mt-8 mb-4">
+          Latest blog post
+        </h2>
+        <a
+          href="blog/omitting-types-in-typescript"
+          target="_blank"
+          class="cursor-pointer rounded hover:bg-gray-800 p-2 mb-2"
+        >
+          Omitting properties in TypeScript
+        </a>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>

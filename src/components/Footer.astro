@@ -1,0 +1,40 @@
+---
+import twitter from "../svgs/twitter.svg";
+import github from "../svgs/github.svg";
+import stackoverflow from "../svgs/stack-overflow.svg";
+import twitch from "../svgs/twitch.svg";
+
+const classNames = (...classes: string[]) => classes.join(" ");
+
+const ICONS = [
+  { style: "twitter", src: twitter, link: "https://twitter.com/codeyams" },
+  { style: "github", src: github, link: "https://github.com/megancooper" },
+  {
+    style: "stackoverflow",
+    src: stackoverflow,
+    link: "https://stackoverflow.com/users/5965537/megan",
+  },
+  { style: "twitch", src: twitch, link: "https://www.twitch.tv/codeyams" },
+];
+---
+
+<footer
+  class="flex items-center rounded-md justify-center mt-8 sm:fixed w-full bottom-4"
+>
+  {
+    ICONS.map(({ style, src, link }) => {
+      return (
+        <a
+          href={link}
+          target="_blank"
+          class={classNames(
+            "cursor-pointer rounded hover:bg-gray-800 p-2 svg-default",
+            style
+          )}
+        >
+          <img src={src} alt={style} class="w-10 h-10 lg:w-8 lg:h-8" />
+        </a>
+      );
+    })
+  }
+</footer>

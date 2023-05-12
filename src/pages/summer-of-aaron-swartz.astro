@@ -1,0 +1,82 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+
+  <body class="w-full">
+    <Header title={`${SITE_TITLE} - Summer of Aaron Swartz`} />
+    <main class="p-4">
+      <div class="animated-bg"></div>
+
+      <div class="m-auto mt-0 max-w-lg">
+        <h1 class="font-title text-5xl max-w-lg text-[#91B4D5] mt-8">
+          Summer of Aaron Swartz
+        </h1>
+
+        <p class="inline-block mt-6">
+          On January 2, 2022 the maintainer of Faker.js (<a
+            href="https://twitter.com/marak"
+            class="underline"
+            target="_blank">@marak</a
+          >) sabotaged the library and left the following message in the README
+          on Github: <span class="italic"
+            >"What really happened with Aaron Swartz?"</span
+          >. I'm not mentioning this to conspire, but to give you the starting
+          point of my journey to understand who Aaron Swartz was and what he
+          stood for.
+        </p>
+        <p class="inline-block mt-6">
+          I hadn't heard of Aaron Swartz until I saw this post on Hacker News.
+          For the next few days I explored bits of his blog and twitter, and
+          read what his friends had to say about him. I was moved by his passion
+          for justice and deeply confused by his death.
+        </p>
+        <p class="inline-block mt-6">
+          This summer I plan to read <a
+            target="_blank"
+            class="underline"
+            href="https://www.versobooks.com/blogs/news/2577-a-hacktivist-reading-list-aaron-swartz-s-recommended-reading"
+            >a series of books that Aaron loved</a
+          > and write some thoughts on each afterwards. The goal is to learn, reflect,
+          and share.
+        </p>
+        <p class="inline-block mt-6">"Just Think" - Aaron Swartz</p>
+
+        <ul class="mt-6">
+          <li>
+            [1] - <a
+              href="https://news.ycombinator.com/item?id=29806328"
+              class="underline"
+              target="_blank">Faker.js Has Been Deleted</a
+            > (Hacker News)
+          </li>
+          <li>
+            [2] - <a
+              href="http://web.archive.org/web/20220109145944/https://github.com/marak/Faker.js/"
+              class="underline"
+              target="_blank">Faker.js "Who killed Aaron Swartz"</a
+            > (Github, Wayback Machine, Archive.org)
+          </li>
+          <li>
+            [2] - <a
+              href="https://arstechnica.com/information-technology/2022/01/foss-developer-who-nuked-his-apps-embraced-qanon-theory-involving-aaron-swartz/"
+              class="underline"
+              target="_blank"
+              >Developer sabotages his own apps, then claims Aaron Swartz was
+              murdered</a
+            > (arstechnica)
+          </li>
+        </ul>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>

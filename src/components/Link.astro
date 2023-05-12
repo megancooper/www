@@ -1,0 +1,16 @@
+---
+export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {}
+
+const { href, class: className, ...props } = Astro.props;
+---
+
+<a
+  href={href}
+  class:list={[
+    "cursor-pointer text-lg md:text-base text-[#5de4c7] hover:border-b-2 hover:border-[#5de4c7]",
+    className,
+  ]}
+  {...props}
+>
+  <slot />
+</a>

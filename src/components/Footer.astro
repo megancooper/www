@@ -6,8 +6,9 @@ import twitch from "../svgs/twitch.svg";
 
 const classNames = (...classes: string[]) => classes.join(" ");
 
-const path = Astro.url.pathname
-const isBlogPost = path.includes('/blog') && path !== '/blog';
+const path = Astro.url.pathname;
+const isBlogPost = path.includes("/blog") && path !== "/blog";
+const isResume = path === "/resume";
 
 const ICONS = [
   { style: "twitter", src: twitter, link: "https://twitter.com/codeyams" },
@@ -24,7 +25,10 @@ const ICONS = [
 <footer
   class:list={[
     "flex items-center rounded-md justify-center mt-8 sm:fixed w-full bottom-4",
-    { "blog-post": isBlogPost },
+    {
+      "blog-post": isBlogPost,
+      hidden: isResume,
+    },
   ]}
 >
   {

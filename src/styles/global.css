@@ -1,15 +1,5 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
-@font-face {
-  font-family: "Fjalla One";
-  src: url("/fonts/FjallaOne-Regular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans&display=swap");
 
 html,
 body {
@@ -17,8 +7,8 @@ body {
 }
 
 body {
-  font-family: Verdana, sans-serif;
-  background: #1c1e28;
+  font-family: "IBM Plex Mono", monospace;
+  background: #0a0a0a;
   color: rgb(148 163 184);
 }
 
@@ -89,7 +79,7 @@ article pre {
 }
 article h2 {
   font-size: large;
-  font-family: Fjalla One, sans-serif;
+  font-family: "IBM Plex Mono", monospace;
   margin-bottom: 1rem;
 }
 article p,
@@ -114,7 +104,7 @@ article pre {
   top: 0px;
   height: 100%;
   width: 100%;
-  background: radial-gradient(transparent, #1c1e28);
+  background: radial-gradient(transparent, #0a0a0a);
   pointer-events: none;
 }
 picture {

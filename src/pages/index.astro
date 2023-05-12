@@ -27,20 +27,47 @@ const PROJECTS = [
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+      #reason {
+        opacity: 0;
+        transition: opacity 0.4s;
+      }
+
+      #reason.show {
+        opacity: 1;
+      }
+    </style>
+    <script>
+      const reasons = ["fun", "growth", "impact"];
+
+      setInterval(async () => {
+        const reason = document.getElementById("reason");
+        if (reason) {
+          reason.classList.remove("show");
+          await new Promise((resolve) => setTimeout(resolve, 400));
+
+          const currentReason = reason.innerText;
+          const index = reasons.indexOf(currentReason);
+          const nextIndex = index + 1 === reasons.length ? 0 : index + 1;
+          const nextReason = reasons[nextIndex];
+          reason.innerText = nextReason;
+          reason.classList.add("show");
+        }
+      }, 2000);
+    </script>
   </head>
+
   <body class="w-full">
     <Header title={SITE_TITLE} />
     <main class="p-4">
       <div class="animated-bg"></div>
 
       <div class="flex flex-col justify-center m-auto max-w-lg">
-        <h1 class="font-title text-5xl max-w-xs text-[#91B4D5] mt-8">
-          Building things for <span class="fun-text">fun</span>.
+        <h1 class="font-title text-5xl max-w-lg text-[#91B4D5] mt-8">
+          Building for <span class="fun-text show" id="reason">fun</span>.
         </h1>
-        <p class="inline-block mt-4">
-          Hello! I'm Megan, a software engineer based in Portland, OR. I enjoy
-          building fast applications and wearing wacky socks.
-        </p>
+        <p class="inline-block mt-4">Software engineer based in Portland, OR</p>
+        <p class="inline-block mt-4">"Just Think" - Aaron Swartz</p>
         <h2 class="font-title text-2xl max-w-xs text-[#91B4D5] mt-8 mb-4">
           Stuff I've built
         </h2>

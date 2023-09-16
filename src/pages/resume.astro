@@ -2,19 +2,26 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import Link from "../components/Link.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import { Image } from "astro:assets";
+
+import github from "../svgs/github.svg";
+import linkedIn from "../svgs/linked-in.svg";
+import stackoverflow from "../svgs/stack-overflow.svg";
 
 const SOCIALS = [
   {
+    image: github,
     href: "https://www.github.com/megancooper",
     text: "github.com/megancooper",
   },
   {
+    image: linkedIn,
     href: "https://www.linkedin.com/in/megancooper2",
     text: "linkedin.com/in/megancooper2",
   },
   {
+    image: stackoverflow,
     href: "https://www.stackoverflow.com/users/5965537/megan",
     text: "stackoverflow.com/users/5965537/megan",
   },
@@ -28,165 +35,183 @@ const SOCIALS = [
   </head>
   <body class="w-full">
     <Header title={SITE_TITLE} />
-    <main class="p-4 h-auto">
-      <div class="animated-bg"></div>
+    <main class="p-4 h-auto w-full">
+      <div class="mx-auto max-w-2xl">
+        <div class="animated-bg"></div>
 
-      <div class="pb-4">
-        <h1 class="font-title text-5xl max-w-lg text-[#91B4D5] mt-8">
-          Megan Cooper
-        </h1>
-        <p class="inline-block mt-4 w-full">
-          Portland, Oregon, US | megancooper1000@gmail.com
-        </p>
-        <p class="inline-block mt-4 w-full">
-          {
-            SOCIALS.map(({ href, text }, index) => {
-              const isLast = index === SOCIALS.length - 1;
-              return (
-                <>
-                  <Link target="_blank" href={href}>
-                    {text}
-                  </Link>
-                  {isLast ? "" : <>&nbsp;|&nbsp;</>}
-                </>
-              );
-            })
-          }
-        </p>
-        <h2 class="font-title text-2xl max-w-xs text-[#91B4D5] mt-8 mb-4">
-          Skills
-        </h2>
-        <p class="inline-block mt-4">
-          <span class="border-b">Programming Languages</span>: TypeScript
-          (Proficient), JavaScript (Expert), Python (Proficient), Node.js
-          (Expert)
-        </p>
-        <p class="inline-block mt-2">
-          <span class="border-b">Technologies</span>: CSS/SCSS, React.js
-          (Expert), Next.js, Electron, Apache Spark, GraphQL, Express, Hapi.js,
-          Astro, React Native, MySQL, PostgreSQL, Elasticsearch, Docker, AWS,
-          Kubernetes, Airflow, Cloudflare Workers, RabbitMQ
-        </p>
+        <Image
+          src="/assets/profile.png"
+          alt="Megan Cooper profile"
+          width="150"
+          height="150"
+          class:list={["rounded-md"]}
+        />
 
-        <h2 class="font-title text-2xl max-w-xs text-[#91B4D5] mt-8 mb-4">
-          Education
-        </h2>
-        <p
-          class="mt-4 flex flex-col lg:flex-row w-fit lg:w-auto justify-between"
-        >
-          <span class="font-semibold"
-            >B.S., Electrical and Computer Engineering, University of Texas at
-            Austin</span
-          ><span>09/2015 - 05/2019</span>
-        </p>
-        <p class="inline-block mt-2">
-          <span class="border-b">Relevant Coursework</span>: Algorithms,
-          Concurrent and Distributed Systems, Operating Systems
-        </p>
+        <div class="pb-4">
+          <h1 class="font-title text-5xl max-w-lg text-[#91B4D5] mt-8">
+            Megan Cooper 👋
+          </h1>
+          <p class="inline-block mt-4 w-full">
+            Portland, Oregon, US | megancooper1000@gmail.com
+          </p>
+          <div class="flex flex-row gap-2 mt-4 w-full">
+            {
+              SOCIALS.map(({ href, text, image }, index) => {
+                return (
+                  <a
+                    target="_blank"
+                    target="_blank"
+                    href={href}
+                    class:list={[
+                      "cursor-pointer rounded hover:bg-gray-800 p-2 svg-default",
+                    ]}
+                  >
+                    <img
+                      src={(image as any).src}
+                      alt="href"
+                      class="w-10 h-10 lg:w-8 lg:h-8"
+                    />
+                  </a>
+                );
+              })
+            }
+          </div>
+          <h2 class="font-title text-2xl max-w-xs text-[#91B4D5] mt-8 mb-4">
+            Skills
+          </h2>
+          <p class="inline-block mt-4">
+            <span class="border-b">Programming Languages</span>: TypeScript
+            (Proficient), JavaScript (Expert), Python (Proficient), Node.js
+            (Expert)
+          </p>
+          <p class="inline-block mt-2">
+            <span class="border-b">Technologies</span>: CSS/SCSS, React.js
+            (Expert), Next.js, Electron, Apache Spark, GraphQL, Express,
+            Hapi.js, Astro, React Native, MySQL, PostgreSQL, Elasticsearch,
+            Docker, AWS, Kubernetes, Airflow, Cloudflare Workers, RabbitMQ
+          </p>
 
-        <h2 class="font-title text-2xl max-w-xs text-[#91B4D5] mt-8 mb-4">
-          Work Experience
-        </h2>
-        <h3 class="mt-4 border-b w-fit">The Knot Worldwide</h3>
-        <ul role="list" class="space-y-6">
-          <li class="relative flex">
-            <div
-              class="absolute -bottom-6 left-0 top-0 flex w-6 justify-center pt-2"
-            >
-              <div class="w-px bg-[#989494]"></div>
-            </div>
-            <div
-              class="relative flex h-6 w-6 flex-none items-center justify-center"
-            >
-              <div
-                class="h-2 w-2 rounded-full bg-[#5de4c7] ring-1 ring-[#989494]"
-              >
-              </div>
-            </div>
-            <p class="flex-auto py-0.5 leading-5">Senior Software Engineer</p>
-            <p class="flex-none py-0.5 leading-5">04/2023 - Present</p>
-          </li>
-          <li class="relative flex">
-            <div class="absolute left-0 top-0 flex h-4 w-6 justify-center">
-              <div class="w-px bg-[#989494]"></div>
-            </div>
-            <div
-              class="relative flex h-6 w-6 flex-none items-center justify-center"
-            >
-              <div
-                class="h-2 w-2 rounded-full bg-[#5de4c7] ring-1 ring-[#989494]"
-              >
-              </div>
-            </div>
-            <p class="flex-auto py-0.5 leading-5">Software Engineer</p>
-            <p class="flex-none py-0.5 leading-5">01/2021 - 04/2023</p>
-          </li>
-        </ul>
-
-        <ul class="mt-4 list-disc list-inside ml-2">
-          <li>
-            Created an NPM package that reduced development time needed to ship
-            (A/B) experimental frontend features (TypeScript, React)
-          </li>
-          <li>
-            Wrote in-depth technical spikes that estimated the level of effort
-            for upcoming features for The Knot's registry and checkout
-            applications
-          </li>
-          <li>
-            Investigated and fixed syncing issues between data sources in
-            e-commerce infrastructure (RabbitMQ, Elasticsearch, GraphQL, MySQL)
-          </li>
-        </ul>
-
-        <h3
-          class="mt-4 flex flex-col lg:flex-row w-fit lg:w-auto justify-between"
-        >
-          <span class="border-b">Software Engineer, Abodewell</span><span
-            >06/2019 - 12/2020</span
+          <h2 class="font-title text-2xl max-w-xs text-[#91B4D5] mt-8 mb-4">
+            Education
+          </h2>
+          <p
+            class="mt-4 flex flex-col lg:flex-row w-fit lg:w-auto justify-between"
           >
-        </h3>
-        <ul class="mt-4 list-disc list-inside ml-2">
-          <li>
-            Refined home valuation process by implementing an automated daily
-            process that calculated absorption & percentile statistics for
-            hundreds of home listings in central Texas (Apache Spark, Python,
-            Airflow, AWS Elastic MapReduce, PostgreSQL, Big Data)
-          </li>
-          <li>
-            Improved reliability of all-day open house infrastructure by
-            assembling a dashboard that showed the connectivity status of door
-            locks, sensors, and Raspberry Pis (Raspberry Pi, Pusher, Docker,
-            Home Assistant)
-          </li>
-          <li>
-            Prevented downtime in MLS data collection web scrapers by updating
-            python selenium scripts when elements in the MLS websites changed
-            (Python, Selenium)
-          </li>
-        </ul>
+            <span class="font-semibold"
+              >B.S., Electrical and Computer Engineering, University of Texas at
+              Austin</span
+            ><span>09/2015 - 05/2019</span>
+          </p>
+          <p class="inline-block mt-2">
+            <span class="border-b">Relevant Coursework</span>: Algorithms,
+            Concurrent and Distributed Systems, Operating Systems
+          </p>
 
-        <h3
-          class="mt-4 flex flex-col lg:flex-row w-fit lg:w-auto justify-between"
-        >
-          <span class="border-b"
-            >Software Engineer Intern, The Knot Worldwide</span
-          ><span>06/2018 - 12/2018</span>
-        </h3>
-        <ul class="mt-4 list-disc list-inside ml-2">
-          <li>
-            Built front end features for The Knot's vendor dashboard (React,
-            Redux, SCSS)
-          </li>
-          <li>
-            Set up new rest endpoints for review verification process in The
-            Knot's vendor marketplace (Hapi.js, Node.js)
-          </li>
-          <li>
-            Added animated experiences to The Knot Pro mobile app (React Native,
-            Redux)
-          </li>
-        </ul>
+          <h2 class="font-title text-2xl max-w-xs text-[#91B4D5] mt-8 mb-4">
+            Work Experience
+          </h2>
+          <h3 class="mt-4 border-b w-fit">The Knot Worldwide</h3>
+          <ul role="list" class="space-y-6">
+            <li class="relative flex">
+              <div
+                class="absolute -bottom-6 left-0 top-0 flex w-6 justify-center pt-2"
+              >
+                <div class="w-px bg-[#989494]"></div>
+              </div>
+              <div
+                class="relative flex h-6 w-6 flex-none items-center justify-center"
+              >
+                <div
+                  class="h-2 w-2 rounded-full bg-[#5de4c7] ring-1 ring-[#989494]"
+                >
+                </div>
+              </div>
+              <p class="flex-auto py-0.5 leading-5">Senior Software Engineer</p>
+              <p class="flex-none py-0.5 leading-5">04/2023 - Present</p>
+            </li>
+            <li class="relative flex">
+              <div class="absolute left-0 top-0 flex h-4 w-6 justify-center">
+                <div class="w-px bg-[#989494]"></div>
+              </div>
+              <div
+                class="relative flex h-6 w-6 flex-none items-center justify-center"
+              >
+                <div
+                  class="h-2 w-2 rounded-full bg-[#5de4c7] ring-1 ring-[#989494]"
+                >
+                </div>
+              </div>
+              <p class="flex-auto py-0.5 leading-5">Software Engineer</p>
+              <p class="flex-none py-0.5 leading-5">01/2021 - 04/2023</p>
+            </li>
+          </ul>
+
+          <ul class="mt-4 list-disc list-inside ml-2">
+            <li>
+              Created an NPM package that reduced development time needed to
+              ship (A/B) experimental frontend features (TypeScript, React)
+            </li>
+            <li>
+              Wrote in-depth technical spikes that estimated the level of effort
+              for upcoming features for The Knot's registry and checkout
+              applications
+            </li>
+            <li>
+              Investigated and fixed syncing issues between data sources in
+              e-commerce infrastructure (RabbitMQ, Elasticsearch, GraphQL,
+              MySQL)
+            </li>
+          </ul>
+
+          <h3
+            class="mt-4 flex flex-col lg:flex-row w-fit lg:w-auto justify-between"
+          >
+            <span class="border-b">Software Engineer, Abodewell</span><span
+              >06/2019 - 12/2020</span
+            >
+          </h3>
+          <ul class="mt-4 list-disc list-inside ml-2">
+            <li>
+              Refined home valuation process by implementing an automated daily
+              process that calculated absorption & percentile statistics for
+              hundreds of home listings in central Texas (Apache Spark, Python,
+              Airflow, AWS Elastic MapReduce, PostgreSQL, Big Data)
+            </li>
+            <li>
+              Improved reliability of all-day open house infrastructure by
+              assembling a dashboard that showed the connectivity status of door
+              locks, sensors, and Raspberry Pis (Raspberry Pi, Pusher, Docker,
+              Home Assistant)
+            </li>
+            <li>
+              Prevented downtime in MLS data collection web scrapers by updating
+              python selenium scripts when elements in the MLS websites changed
+              (Python, Selenium)
+            </li>
+          </ul>
+
+          <h3
+            class="mt-4 flex flex-col lg:flex-row w-fit lg:w-auto justify-between"
+          >
+            <span class="border-b"
+              >Software Engineer Intern, The Knot Worldwide</span
+            ><span>06/2018 - 12/2018</span>
+          </h3>
+          <ul class="mt-4 list-disc list-inside ml-2">
+            <li>
+              Built front end features for The Knot's vendor dashboard (React,
+              Redux, SCSS)
+            </li>
+            <li>
+              Set up new rest endpoints for review verification process in The
+              Knot's vendor marketplace (Hapi.js, Node.js)
+            </li>
+            <li>
+              Added animated experiences to The Knot Pro mobile app (React
+              Native, Redux)
+            </li>
+          </ul>
+        </div>
       </div>
     </main>
     <Footer />

@@ -42,7 +42,11 @@ const ICONS = [
             style
           )}
         >
-          <img src={src} alt={style} class="w-10 h-10 lg:w-8 lg:h-8" />
+          <img
+            src={(src as any).src}
+            alt={style}
+            class="w-10 h-10 lg:w-8 lg:h-8"
+          />
         </a>
       );
     })
